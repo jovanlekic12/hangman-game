@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-image: url(/src/assets/images/background-desktop.svg);
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  border-radius: 4.8rem;
+  background: linear-gradient(180deg, #344aba, rgba(0, 20, 121, 0.83));
+  box-shadow: inset 0 0.6rem 0 0.2rem #3c74ff, 0 1rem 0 0.4rem #140e66;
+  height: 36rem;
+  width: 100%;
+  padding: 6.4rem 3.2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 4rem;
+}
+
+.play__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 10rem;
+  background: linear-gradient(180deg, #fe71fe 16.42%, #7199ff);
+  box-shadow: inset 0 -1.5rem 0 0.6rem #9d2df5, 0 0.4rem 0 0.6rem #243041;
+  margin: 0 20rem;
+  margin-top: 10rem;
+}
+
+.play__btn {
+  background-image: url(/src/assets/images/icon-play.svg);
+  width: 5rem;
+  height: 5rem;
+  background-position: center;
+  background-size: contain;
+}
+
+.logo__div {
+  background-image: url(/src/assets/images/logo.svg);
+  width: 45rem;
+  height: 20rem;
+  background-position: center;
+  background-size: auto;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -10rem;
+}
