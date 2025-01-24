@@ -1,15 +1,15 @@
 import { useState } from "react";
 import "./App.css";
-import { Link } from "react-router";
+import { Route, Routes } from "react-router";
+import Home from "./pages/Home";
+import Categories from "./pages/Categories";
 
 function App() {
   return (
-    <main className="container">
-      <div className="logo__div"></div>
-      <Link className="play__link">
-        <span className="play__btn"></span>
-      </Link>
-    </main>
+    <Routes>
+      <Route index element={<Home />}></Route>
+      <Route path="categories" element={<Categories />}></Route>
+    </Routes>
   );
 }
 
