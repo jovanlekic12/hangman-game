@@ -1,15 +1,24 @@
 import { Link } from "react-router";
 
-function Categories() {
+function Categories(props) {
+  const { categories } = props;
+
+  console.log(categories);
+
   return (
     <>
       <nav className="navbar__categories">
-        <Link className="back__link">
+        <Link className="back__link" to="/">
           <span className="back__btn"></span>
         </Link>
         <h1>Pick a Category</h1>
       </nav>
-      <section className="categories__grid"></section>
+      <section className="categories__grid">
+        {categories &&
+          Object.entries(categories).map(([category]) => {
+            return <Link className="grid__link">{category}</Link>;
+          })}
+      </section>
     </>
   );
 }
