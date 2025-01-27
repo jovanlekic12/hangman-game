@@ -7,7 +7,7 @@ function Categories(props) {
 
   return (
     <>
-      <nav className="navbar__categories">
+      <nav className="navbar">
         <Link className="back__link" to="/">
           <span className="back__btn"></span>
         </Link>
@@ -16,7 +16,11 @@ function Categories(props) {
       <section className="categories__grid">
         {categories &&
           Object.entries(categories).map(([category]) => {
-            return <Link className="grid__link">{category}</Link>;
+            return (
+              <Link className="grid__link" to={`/InGame/${category}`}>
+                {category}
+              </Link>
+            );
           })}
       </section>
     </>

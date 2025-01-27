@@ -3,6 +3,7 @@ import "./App.css";
 import { Route, Routes } from "react-router";
 import Home from "./pages/Home";
 import Categories from "./pages/Categories";
+import InGame from "./pages/InGame";
 
 function App() {
   const [data, setData] = useState(null);
@@ -22,6 +23,7 @@ function App() {
         path="categories"
         element={<Categories categories={data.categories} />}
       ></Route>
+      <Route path="InGame/:id" element={<InGame data={data} />}></Route>
     </Routes>
   );
 }
