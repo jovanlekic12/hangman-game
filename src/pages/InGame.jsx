@@ -1,35 +1,37 @@
 import { Link, useParams } from "react-router";
 import Letter from "../UI/Letter";
 import KeyboardLetter from "../UI/KeyboardLetter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function InGame({ data }) {
   let params = useParams();
+  const randomNumber = Math.floor(Math.random() * 31);
+  const keyboardText = "abcdefghijklmnopqrstuvwxyz";
+  const keyboard = keyboardText.split("");
+  const [word, setWord] = useState([]);
 
-  console.log(data.categories[params.id]);
+  // console.log(data.categories[params.id]);
 
-  const text = "abcdefghijklmnopqrstuvwxyz";
-  const keyboard = text.split("");
-
-  const k = "ki ki";
-  const v = k.split("");
-  const da = v.map((char) => ({
-    name: char,
-    isGuessed: false,
-  }));
-
-  const [mjau, setMjau] = useState(da);
+  useEffect(() => {
+    const items = data.categories[params.id];
+    const randomMovie = items[randomNumber].name;
+    const randomMovieSplit = randomMovie.split("").map((char) => ({
+      name: char,
+      isGuessed: false,
+    }));
+    setWord(randomMovieSplit);
+  }, []);
 
   function handleIsGuessed(letter) {
-    const nw = mjau.map((object) => {
-      if (object.name === letter) {
+    const items = word.map((object) => {
+      if (object.name.toLowerCase() === letter) {
         return { ...object, isGuessed: true };
       } else {
         console.log("wrong");
         return { ...object };
       }
     });
-    setMjau(nw);
+    setWord(items);
   }
 
   return (
@@ -50,7 +52,7 @@ function InGame({ data }) {
       </nav>
       <main className="game__container">
         <section className="word__section">
-          {mjau.map((char) => {
+          {word.map((char) => {
             return <Letter {...char} />;
           })}
         </section>

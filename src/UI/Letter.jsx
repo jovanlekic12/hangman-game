@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 
 function Letter({ name, isGuessed }) {
-  console.log("g", isGuessed);
+  console.log(name, isGuessed);
 
   return (
     <article
-      className={`${isGuessed ? "letter" : "letter__hidden"} ${
+      className={`${isGuessed ? "guessed__letter" : "letter__hidden"} ${
         name === " " ? "hidden" : ""
       }`}
     >
-      <h1 className="hidden">{name}</h1>
+      <h1 className={isGuessed ? "" : "hidden"}>{name}</h1>
     </article>
   );
 }
