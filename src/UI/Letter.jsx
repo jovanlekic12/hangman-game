@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 
 function Letter({ name, isGuessed }) {
-  console.log(name, isGuessed);
-
   return (
     <article
       className={`${isGuessed ? "guessed__letter" : "letter__hidden"} ${

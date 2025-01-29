@@ -3,8 +3,6 @@ import { Link } from "react-router";
 function Categories(props) {
   const { categories } = props;
 
-  console.log(categories);
-
   return (
     <>
       <nav className="navbar">

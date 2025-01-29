@@ -1,8 +1,18 @@
+import { useState } from "react";
+
 function KeyboardLetter({ char, onClick }) {
+  const [disabled, setDisabled] = useState();
+
   return (
-    <article className="letter" onClick={onClick}>
+    <button
+      className={disabled ? "letter disabled" : "letter"}
+      onClick={() => {
+        onClick(), setDisabled(true);
+      }}
+      disabled={disabled}
+    >
       <h1>{char}</h1>
-    </article>
+    </button>
   );
 }
 
