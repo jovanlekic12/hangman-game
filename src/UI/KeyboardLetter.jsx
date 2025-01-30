@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function KeyboardLetter({ char, onClick }) {
+function KeyboardLetter({ gameOver, char, onClick }) {
   const [disabled, setDisabled] = useState();
+
+  useEffect(() => {
+    setDisabled(false);
+  }, [gameOver]);
 
   return (
     <button

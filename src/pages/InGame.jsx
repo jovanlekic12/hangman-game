@@ -47,7 +47,6 @@ function InGame({ data }) {
   }, [health, word]);
 
   function handleIsGuessed(letter) {
-    const includesLetter = word.includes(letter)
     const items = word.map((object) => {
       if (object.name.toLowerCase() === letter) {
         return { ...object, isGuessed: true };
@@ -87,8 +86,8 @@ function InGame({ data }) {
       </nav>
       <main className="game__container">
         <section className="word__section">
-          {word.map((char) => {
-            return <Letter {...char} />;
+          {word.map((char, index) => {
+            return <Letter {...char} key={index} />;
           })}
         </section>
         <section className="keyboard">
@@ -97,6 +96,8 @@ function InGame({ data }) {
               <KeyboardLetter
                 char={letter}
                 onClick={() => handleIsGuessed(letter)}
+                key={letter}
+                gameOver={gameOver}
               />
             );
           })}
